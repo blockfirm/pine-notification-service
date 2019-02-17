@@ -19,7 +19,8 @@ const config = {
       teamId: ''
     },
     notifications: {
-      newPayment: 'You just received a new payment!'
+      newPayment: 'You just received a new payment!',
+      contactRequest: '${address} wants to add you as a contact'
     }
   }
 };

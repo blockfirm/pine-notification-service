@@ -1,7 +1,15 @@
 import errors from 'restify-errors';
 
+const renderMessage = (template, context) => {
+  let message = template;
+
+  message = message.replace('${address}', context.address || 'Someone');
+
+  return message;
+};
+
 const post = function post(request, response) {
-  const deviceToken = request.params.deviceToken;
+  const { deviceToken, type, context } = request.params;
 
   return Promise.resolve().then(() => {
     if (!deviceToken || typeof deviceToken !== 'string') {
@@ -16,7 +24,23 @@ const post = function post(request, response) {
       );
     }
 
-    return this.apn.send(this.config.apn.notifications.newPayment, deviceToken).then((result) => {
+    if (context && typeof context !== 'object') {
+      throw new errors.BadRequestError(
+        'The context must be an object'
+      );
+    }
+
+    const template = this.config.apn.notifications[type || 'newPayment'];
+
+    if (!template) {
+      throw new errors.BadRequestError(
+        'Unknown notification type'
+      );
+    }
+
+    const message = renderMessage(template, context || {});
+
+    return this.apn.send(message, deviceToken).then((result) => {
       response.send(result);
     });
   });

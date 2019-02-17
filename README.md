@@ -82,6 +82,8 @@ Encoded as JSON.
 | Name | Type | Description |
 | --- | --- | --- |
 | deviceToken | *string* | Device token to send the notification to |
+| type | *string* | Type of notification to send. One of `'newPayment'` and `'contactRequest'` |
+| context | *object* | *Optional.* Context to use when rendering the message (see `src/config.js`) |
 
 #### Returns
 
