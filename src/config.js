@@ -20,7 +20,8 @@ const config = {
     },
     notifications: {
       newPayment: 'You just received a new payment!',
-      contactRequest: '${address} wants to add you as a contact'
+      contactRequest: '${address} wants to add you as a contact',
+      contactRequestAccepted: '${address} accepted your contact request'
     }
   }
 };
