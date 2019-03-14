@@ -3,6 +3,10 @@ import errors from 'restify-errors';
 const renderMessage = (template, context) => {
   let message = template;
 
+  if (!template) {
+    return;
+  }
+
   message = message.replace('${address}', context.address || 'Someone');
 
   return message;
@@ -30,17 +34,18 @@ const post = function post(request, response) {
       );
     }
 
-    const template = this.config.apn.notifications[type || 'newPayment'];
+    const notification = this.config.apn.notifications[type || 'newPayment'];
 
-    if (!template) {
+    if (!notification) {
       throw new errors.BadRequestError(
         'Unknown notification type'
       );
     }
 
-    const message = renderMessage(template, context || {});
+    const title = renderMessage(notification.title, context || {});
+    const message = renderMessage(notification.message, context || {});
 
-    return this.apn.send(message, context, deviceToken).then((result) => {
+    return this.apn.send(title, message, context, deviceToken).then((result) => {
       response.send(result);
     });
   });

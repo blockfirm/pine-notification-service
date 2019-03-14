@@ -25,7 +25,8 @@ export default class ApnClient {
     console.log('[APN] ✅ Connected');
   }
 
-  send(message, context, deviceToken) {
+  // eslint-disable-next-line max-params
+  send(title, message, context, deviceToken) {
     const notification = new apn.Notification();
 
     if (!this.provider) {
@@ -35,7 +36,8 @@ export default class ApnClient {
     notification.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
     notification.badge = 1;
     notification.sound = SOUND;
-    notification.alert = message;
+    notification.title = title;
+    notification.body = message;
     notification.topic = this.config.bundleId;
     notification.payload = context;
 
