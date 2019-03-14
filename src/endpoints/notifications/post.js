@@ -40,7 +40,7 @@ const post = function post(request, response) {
 
     const message = renderMessage(template, context || {});
 
-    return this.apn.send(message, deviceToken).then((result) => {
+    return this.apn.send(message, context, deviceToken).then((result) => {
       response.send(result);
     });
   });

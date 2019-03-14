@@ -25,7 +25,7 @@ export default class ApnClient {
     console.log('[APN] ✅ Connected');
   }
 
-  send(message, deviceToken) {
+  send(message, context, deviceToken) {
     const notification = new apn.Notification();
 
     if (!this.provider) {
@@ -37,6 +37,7 @@ export default class ApnClient {
     notification.sound = SOUND;
     notification.alert = message;
     notification.topic = this.config.bundleId;
+    notification.payload = context;
 
     return this.provider.send(notification, [deviceToken]);
   }
