@@ -17,9 +17,7 @@ export default class ApnClient {
 
     this.provider = new apn.Provider({
       production: config.production,
-      token: {
-        ...config.token
-      }
+      token: config.token
     });
 
     console.log('[APN] ✅ Connected');

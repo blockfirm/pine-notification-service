@@ -31,6 +31,10 @@ const config = {
         message: 'accepted your contact request'
       }
     }
+  },
+  redis: {
+    host: '127.0.0.1',
+    port: 6379
   }
 };
 

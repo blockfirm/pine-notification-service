@@ -1,8 +1,8 @@
-import { ApnClient } from './apn';
+import { ApnQueue } from './apn';
 
 const createContext = (config) => {
   const context = {
-    apn: new ApnClient(config.apn),
+    apn: new ApnQueue(config),
     config
   };
 
