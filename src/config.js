@@ -22,6 +22,10 @@ const config = {
       newPayment: {
         message: 'You just received a new payment!'
       },
+      incomingPayment: {
+        title: '${address}',
+        message: 'sent you a payment'
+      },
       contactRequest: {
         title: '${address}',
         message: 'wants to add you as a contact'
