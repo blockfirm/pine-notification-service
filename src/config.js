@@ -2,6 +2,7 @@ const config = {
   api: {
     version: 'v1',
     port: 50427,
+    publicKey: 'certs/public.key',
     rateLimit: {
       burst: 5,
       rate: 1,
@@ -14,7 +15,7 @@ const config = {
     production: false,
     bundleId: 'se.blockfirm.Pine',
     token: {
-      key: '', // Path to .p8 key file.
+      key: 'certs/xyz.p8', // Path to .p8 key file.
       keyId: '',
       teamId: ''
     },

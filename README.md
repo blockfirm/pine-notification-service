@@ -11,8 +11,11 @@ REST API to send push notifications to [Pine](https://pinewallet.co) users.
 
 * [Dependencies](#dependencies)
 * [Getting started](#getting-started)
-* [API Docs](#api)
+* [API documentation](#api-documentation)
   * [Endpoints](#endpoints)
+  * [Authentication](#authentication)
+     - [Obtaining an API key](#obtaining-an-api-key)
+     - [Authenticating](#authenticating)
   * [Error handling](#error-handling)
   * [Rate limiting](#rate-limiting)
 * [Contributing](#contributing)
@@ -38,6 +41,14 @@ REST API to send push notifications to [Pine](https://pinewallet.co) users.
 4. Open `src/config.js`
 5. Enter your key credentials (key path, key ID, and team ID) in `apn.token`
 6. Enter your app's bundle ID in `apn.bundleId`
+7. Generate a key pair for authentication:
+    ```
+    $ mkdir certs
+    $ ssh-keygen -t rsa -b 4096 -m PEM -f certs/private.key
+    $ openssl rsa -in certs/private.key -pubout -outform PEM -out certs/public.key
+    ```
+
+    **Note:** Only the public key should be deployed to the server.
 7. Start the API server in development mode:
     ```
     $ npm run dev
@@ -48,7 +59,7 @@ REST API to send push notifications to [Pine](https://pinewallet.co) users.
     $ npm start
     ```
 
-## API
+## API documentation
 
 ### Endpoints
 
@@ -118,6 +129,30 @@ Example of an unsuccessful response:
     ]
 }
 ```
+
+### Authentication
+
+#### Obtaining an API key
+
+Generate a new API key by using the private key of the public key that has been
+deployed on the server.
+
+```
+$ node scripts/cli generate-key <domain> <private-key>
+```
+
+**domain:** Domain name of the server that will use the API key  
+**private-key:** Path to private key to use for generating the API key
+
+### Authenticating
+
+When requesting the API, authenticate using the `Authorization` header:
+
+```
+Authorization: Bearer <key-secret>
+```
+
+**key-secret:** The API key that was generated using the instructions above
 
 ### Error handling
 

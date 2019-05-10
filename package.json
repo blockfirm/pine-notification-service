@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "apn": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
     "restify": "^7.2.1",
     "restify-errors": "^6.1.1"
   },
@@ -36,6 +37,8 @@
     "mocha": "^5.2.0",
     "nyc": "^13.3.0",
     "proxyquire": "^1.8.0",
-    "sinon": "^4.0.0"
+    "sinon": "^4.0.0",
+    "uuid": "^3.3.2",
+    "yargs": "^13.2.2"
   }
 }
