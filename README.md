@@ -37,11 +37,12 @@ REST API to send push notifications to [Pine](https://pinewallet.co) users.
     ```
     $ npm install
     ```
-3. [Create a new key](https://developer.apple.com/account/ios/authkey) in your Apple Developer account to be used with the Apple Push Notifications Service
-4. Open `src/config.js`
-5. Enter your key credentials (key path, key ID, and team ID) in `apn.token`
-6. Enter your app's bundle ID in `apn.bundleId`
-7. Generate a key pair for authentication:
+3. Rename `src/config.template.js` to `src/config.js`
+4. [Create a new key](https://developer.apple.com/account/ios/authkey) in your Apple Developer account to be used with the Apple Push Notifications Service
+5. Open `src/config.js`
+6. Enter your key credentials (key path, key ID, and team ID) in `apn.token`
+7. Enter your app's bundle ID in `apn.bundleId`
+8. Generate a key pair for authentication:
     ```
     $ mkdir certs
     $ ssh-keygen -t rsa -b 4096 -m PEM -f certs/private.key
@@ -49,11 +50,11 @@ REST API to send push notifications to [Pine](https://pinewallet.co) users.
     ```
 
     **Note:** Only the public key should be deployed to the server.
-7. Start the API server in development mode:
+9. Start the API server in development mode:
     ```
     $ npm run dev
     ```
-8. Or build it and run in production mode:
+10. Or build it and run in production mode:
     ```
     $ npm run build
     $ npm start
