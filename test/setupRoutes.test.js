@@ -1,12 +1,14 @@
 import proxyquire from 'proxyquire';
 import assert from 'assert';
 import sinon from 'sinon';
+import configMock from './configMock';
 
 const wrapEndpointSpy = sinon.spy();
 
 const setupRoutes = proxyquire('../src/setupRoutes', {
   './createContext': { default: () => ({}) },
-  './wrapEndpoint': { default: wrapEndpointSpy }
+  './wrapEndpoint': { default: wrapEndpointSpy },
+  './config': { ...configMock, '@noCallThru': true }
 }).default;
 
 describe('setupRoutes.js', () => {
