@@ -27,7 +27,11 @@ export default class ApnClient {
 
   // eslint-disable-next-line max-params
   send(title, message, context, deviceToken) {
-    const notification = new apn.Notification();
+    const notification = new apn.Notification({
+      aps: {
+        'content-available': 1 // This enables background fetch.
+      }
+    });
 
     if (!this.provider) {
       return Promise.resolve();
