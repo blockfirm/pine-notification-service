@@ -21,7 +21,7 @@ const config = {
     },
     notifications: {
       newPayment: {
-        message: 'You just received a new payment!'
+        message: null
       },
       incomingPayment: {
         title: '${address}',

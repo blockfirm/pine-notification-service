@@ -33,7 +33,7 @@ export default class ApnClient {
       }
     });
 
-    if (!this.provider) {
+    if (!this.provider || !message) {
       return Promise.resolve();
     }
 
