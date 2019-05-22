@@ -37,7 +37,7 @@ export default class ApnClient {
       return Promise.resolve();
     }
 
-    notification.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
+    notification.expiry = Math.floor(Date.now() / 1000) + (3600 * 72); // Expires in 3 days from now.
     notification.badge = 1;
     notification.sound = SOUND;
     notification.title = title;
