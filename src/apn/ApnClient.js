@@ -40,7 +40,7 @@ export default class ApnClient {
     notification.body = message;
     notification.topic = this.config.bundleId;
     notification.payload = context;
-    notification.aps.contentAvailable = 1; // This enables background fetch.
+    notification.contentAvailable = 1; // This enables background fetch.
 
     return this.provider.send(notification, [deviceToken]);
   }
