@@ -20,9 +20,6 @@ const config = {
       teamId: ''
     },
     notifications: {
-      newPayment: {
-        message: null
-      },
       incomingPayment: {
         title: '${address}',
         message: 'sent you a payment'
