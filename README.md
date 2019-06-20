@@ -5,7 +5,7 @@ Pine Notification Service
 [![Build Status](https://img.shields.io/travis/blockfirm/pine-notification-service.svg?branch=master&style=flat-square)](https://travis-ci.org/blockfirm/pine-notification-service)
 [![Coverage Status](https://img.shields.io/coveralls/blockfirm/pine-notification-service.svg?style=flat-square)](https://coveralls.io/r/blockfirm/pine-notification-service)
 
-REST API to send push notifications to [Pine](https://pinewallet.co) users.
+REST API to send push notifications to [Pine](https://pine.pm) users.
 
 ## Table of Contents
 
