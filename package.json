@@ -22,23 +22,23 @@
   "dependencies": {
     "apn": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
-    "restify": "^7.2.1",
+    "restify": "^8.4.0",
     "restify-errors": "^6.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "@babel/register": "^7.0.0",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
     "babel-plugin-transform-builtin-extend": "^1.1.2",
-    "coveralls": "^3.0.2",
+    "coveralls": "^3.0.7",
     "eslint": "^4.7.1",
     "mocha": "^5.2.0",
     "nyc": "^14.1.1",
     "proxyquire": "^1.8.0",
     "sinon": "^4.0.0",
-    "uuid": "^3.3.2",
-    "yargs": "^13.2.2"
+    "uuid": "^3.3.3",
+    "yargs": "^13.3.0"
   }
 }
