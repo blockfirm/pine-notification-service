@@ -1,6 +1,7 @@
 import apn from 'apn';
 
 const SOUND = 'ping.aiff';
+const PUSH_TYPE_ALERT = 'alert';
 
 export default class ApnClient {
   constructor(config) {
@@ -41,6 +42,7 @@ export default class ApnClient {
     notification.topic = this.config.bundleId;
     notification.payload = context;
     notification.contentAvailable = 1; // This enables background fetch.
+    notification.pushType = PUSH_TYPE_ALERT;
 
     return this.provider.send(notification, [deviceToken]);
   }

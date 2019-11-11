@@ -20,7 +20,7 @@
     "url": "https://github.com/blockfirm/pine-notification-service.git"
   },
   "dependencies": {
-    "apn": "^2.2.0",
+    "apn": "git+https://github.com/node-apn/node-apn.git#3.0.0",
     "jsonwebtoken": "^8.5.1",
     "restify": "^8.4.0",
     "restify-errors": "^6.1.1"
