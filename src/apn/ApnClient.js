@@ -1,6 +1,6 @@
 import apn from 'apn';
 
-const SOUND = 'ping.aiff';
+const SOUND_PING = 'ping.aiff';
 const PUSH_TYPE_ALERT = 'alert';
 
 export default class ApnClient {
@@ -36,7 +36,7 @@ export default class ApnClient {
 
     notification.expiry = Math.floor(Date.now() / 1000) + (3600 * 72); // Expires in 3 days from now.
     notification.badge = 1;
-    notification.sound = SOUND;
+    notification.sound = SOUND_PING;
     notification.title = title;
     notification.body = message;
     notification.topic = this.config.bundleId;
