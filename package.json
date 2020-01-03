@@ -1,6 +1,6 @@
 {
   "name": "pine-notification-service",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "REST API to send push notifications to Pine users.",
   "main": "src/server.js",
   "scripts": {
