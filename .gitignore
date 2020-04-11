@@ -16,3 +16,7 @@ build/
 
 certs/
 src/config.js
+
+# Vim swap files
+*.swp
+*.swo
