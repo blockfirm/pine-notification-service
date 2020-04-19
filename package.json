@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node build/index.js",
-    "dev": "node src/index.dev.js",
+    "dev": "NODE_ENV=development node src/index.dev.js",
     "build": "./node_modules/.bin/babel ./src --experimental --source-maps-inline -d ./build",
     "test": "node_modules/.bin/nyc node_modules/.bin/_mocha --require @babel/register --exit -- \"test/**/*.test.js\"",
     "lint": "./node_modules/.bin/eslint --ext .js src/ test/",
@@ -23,7 +23,9 @@
     "apn": "git+https://github.com/node-apn/node-apn.git#3.0.0",
     "jsonwebtoken": "^8.5.1",
     "restify": "^8.4.0",
-    "restify-errors": "^6.1.1"
+    "restify-errors": "^6.1.1",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",

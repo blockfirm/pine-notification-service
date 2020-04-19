@@ -50,11 +50,15 @@ REST API to send push notifications to [Pine](https://pine.pm) users.
     ```
 
     **Note:** Only the public key should be deployed to the server.
-9. Start the API server in development mode:
+9. Create a log directory:
+    ```
+    $ mkdir /var/log/pine
+    ```
+10. Start the API server in development mode:
     ```
     $ npm run dev
     ```
-10. Or build it and run in production mode:
+11. Or build it and run in production mode:
     ```
     $ npm run build
     $ npm start

@@ -1,4 +1,5 @@
 import apn from 'apn';
+import logger from '../logger';
 
 const SOUND_PING = 'ping.aiff';
 const PUSH_TYPE_ALERT = 'alert';
@@ -6,14 +7,24 @@ const PUSH_TYPE_ALERT = 'alert';
 export default class ApnClient {
   constructor(config) {
     this.config = config;
-    this._connect();
+    this.logger = logger.child({ scope: 'ApnClient' });
+
+    this._tryConnect();
+  }
+
+  _tryConnect() {
+    try {
+      this._connect();
+    } catch (error) {
+      this.logger.error(`Unable to connect to APN service: ${error.message}`);
+    }
   }
 
   _connect() {
     const config = this.config;
 
     if (!config || !config.token || !config.token.key) {
-      return;
+      throw new Error('Missing APN configuration');
     }
 
     this.provider = new apn.Provider({
@@ -23,14 +34,20 @@ export default class ApnClient {
       }
     });
 
-    console.log('[APN] ✅ Connected');
+    this.logger.info('Connected to APN service');
   }
 
-  // eslint-disable-next-line max-params
+  // eslint-disable-next-line max-params, max-statements
   send(title, message, context, deviceToken) {
     const notification = new apn.Notification();
 
-    if (!this.provider || !message) {
+    if (!this.provider) {
+      this.logger.error('Cannot send notification: Missing provider');
+      return Promise.resolve();
+    }
+
+    if (!message) {
+      this.logger.error(`Cannot send notification: Missing message`);
       return Promise.resolve();
     }
 

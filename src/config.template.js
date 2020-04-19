@@ -33,6 +33,10 @@ const config = {
         message: 'accepted your contact request'
       }
     }
+  },
+  log: {
+    level: 'info', // One of 'info', 'warn', 'error'.
+    dir: '/var/log/pine'
   }
 };
 
