@@ -31,6 +31,10 @@ const config = {
       contactRequestAccepted: {
         title: '${address}',
         message: 'accepted your contact request'
+      },
+      channelOpened: {
+        title: 'Pine',
+        message: 'Pine is now ready to be used with Lightning'
       }
     }
   },
