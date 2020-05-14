@@ -17,6 +17,7 @@ REST API to send push notifications to [Pine](https://pine.pm) users.
      - [Obtaining an API key](#obtaining-an-api-key)
      - [Authenticating](#authenticating)
   * [Error handling](#error-handling)
+  * [Notification types](#notification-types)
   * [Rate limiting](#rate-limiting)
 * [Contributing](#contributing)
 * [Licensing](#licensing)
@@ -98,7 +99,7 @@ Encoded as JSON.
 | Name | Type | Description |
 | --- | --- | --- |
 | deviceToken | *string* | Device token to send the notification to |
-| type | *string* | Type of notification to send. One of `'incomingPayment'`, `'contactRequest'`, and `'contactRequestAccepted'` |
+| type | *string* | Type of notification to send. See [Notification types](#notification-types) |
 | context | *object* | *Optional.* Context to use when rendering the message (see `src/config.js`) |
 
 #### Returns
@@ -169,6 +170,18 @@ Errors are returned as JSON in the following format:
     "message": "<error message>"
 }
 ```
+
+### Notification types
+
+Only a predefined set of notifications can be sent. The following notification types are supported
+at the moment:
+
+| Type | Title | Message | Variables |
+| ---- | ----- | ------- | --------- |
+| `incomingPayment` | `$address` | *sent you a payment* | `address` |
+| `contactRequest` | `$address` | *wants to add you as a contact* | `address` |
+| `contactRequestAccepted` | `$address` | *accepted your contact request* | `address` |
+| `channelOpened` | *Pine* | *Pine is now ready to be used with Lightning* | *N/A* |
 
 ### Rate limiting
 
